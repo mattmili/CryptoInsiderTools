@@ -14,11 +14,8 @@ router.get('/ticker', (req, res) => {
     method: "GET",
     timeout: 5000,
   }, function(error, resp, body) {
-      
     var jsonObject = JSON.parse(body);
-    
     res.send(jsonObject);   
-    
   });
 });
 

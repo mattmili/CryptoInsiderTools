@@ -1,24 +1,20 @@
-import '../assets/stylesheets/base.scss';
-import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import React from 'react';
+import { render } from 'react-dom';
+import { Router, Route, Link, IndexRoute, hashHistory} from 'react-router';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+import Main from './Main';
+import Ticker from './Ticker';
 
 injectTapEventPlugin();
 
-export default class App extends Component {
-
-  constructor(props) {
-    super(props);
-  }
-
-  render() {    
-    
-    return (
-      <MuiThemeProvider>
-        <h1>HELLO WORLD</h1>
-      </MuiThemeProvider>
+export default class App extends React.Component {
+  render(){
+    return(
+      <Router history={hashHistory}>
+        <Route path='/' component={Main}/>
+        <Route path='/ticker' component={Ticker}/>
+      </Router>
     );
   }
 }
-
-
-
